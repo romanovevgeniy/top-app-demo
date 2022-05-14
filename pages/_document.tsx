@@ -6,7 +6,7 @@ class MyDocument extends Document {
         const initialProps = await Document.getInitialProps(context);
         return { ...initialProps };
     }
-
+    // Добавляем lang="ru" 
     render(): JSX.Element {
         return (
             <Html lang='ru'>

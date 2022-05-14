@@ -16,6 +16,7 @@ a {
 	box-sizing: border-box;
 }
 
+/* создаем переменные для CSS-свойств, также выносим в переменную шрифт*/
 :root {
     --black: #3B434E;
     --white: white;
