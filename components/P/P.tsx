@@ -13,6 +13,6 @@ export const P = ({ size = 'm', children, className, ...props }: PProps): JSX.El
             {...props}
         >
             {children}
-        </p >
+        </p>
     )
 };
