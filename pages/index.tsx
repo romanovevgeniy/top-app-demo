@@ -1,5 +1,4 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import React from 'react';
 import { Button, Htag, P } from '../components';
 
 export default function Home(): JSX.Element {
