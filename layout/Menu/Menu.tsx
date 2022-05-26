@@ -27,7 +27,7 @@ export const Menu = (): JSX.Element => {
 					<div key={m.route}>
 						<a href={`/${m.route}`}>
 							<div className={cn(styles.firstLevel, {
-								[styles.firstLevel]: m.id == firstCategory
+								[styles.firstLevelActive]: m.id == firstCategory
 							})}>
 								{m.icon}
 								<span>
