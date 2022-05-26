@@ -35,6 +35,7 @@ export const Menu = (): JSX.Element => {
 								</span>
 							</div>
 						</a>
+						{menu.id == firstCategory && buildSecondLevel()}
 					</div>
 				))}
 			</>
@@ -42,7 +43,23 @@ export const Menu = (): JSX.Element => {
 	};
 
 	const buildSecondLevel = () => {
+		return (
+			<div>
+				{menu.map(m => (
+					<div key={m._id.secondCategory}>
+						<div className={styles.secondLevel}>
+							{m._id.secondCategory}
+						</div>
+						<div className={cn(styles.secondLevelBlock, {
+							[styles.secondLevelBlockOpened]: m.isOpened
+						})}>
 
+						</div>
+					</div>
+				))
+				};
+			</div >
+		)
 	};
 
 	const buildThirdLevel = () => {
