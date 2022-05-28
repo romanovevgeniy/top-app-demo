@@ -13,7 +13,7 @@ export const AppContext = createContext<IAppContext>({ menu: [], firstCategory: 
 export const AppContextProvider = ({ menu, firstCategory, children }: IAppContext & { children: ReactNode }): JSX.Element => {
 	const [menuState, setMenuState] = useState<MenuItem[]>(menu);
 
-	const setMenu(newMenu: MenuItem[]) => {
+	const setMenu = (newMenu: MenuItem[]) => {
 		setMenuState(newMenu);
 	};
 
