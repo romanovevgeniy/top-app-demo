@@ -22,24 +22,24 @@ export const HhData = ({ count, juniorsalary, middlesalary, seniorsalary }: HhDa
 					</div>
 				</div>
 				<div>
-					<div className={styles.title}>Средний/div>
-						<div className={styles.salaryValue}>{middlesalary}</div>
-						<div className={styles.rate}>
-							<RateIcon className={styles.filled} />
-							<RateIcon className={styles.filled} />
-							<RateIcon />
-						</div>
+					<div className={styles.title}>Средний</div>
+					<div className={styles.salaryValue}>{middlesalary}</div>
+					<div className={styles.rate}>
+						<RateIcon className={styles.filled} />
+						<RateIcon className={styles.filled} />
+						<RateIcon />
 					</div>
-					<div>
-						<div className={styles.title}>Профессионал</div>
-						<div className={styles.salaryValue}>{seniorsalary}</div>
-						<div className={styles.rate}>
-							<RateIcon className={styles.filled} />
-							<RateIcon className={styles.filled} />
-							<RateIcon className={styles.filled} />
-						</div>
+				</div>
+				<div>
+					<div className={styles.title}>Профессионал</div>
+					<div className={styles.salaryValue}>{seniorsalary}</div>
+					<div className={styles.rate}>
+						<RateIcon className={styles.filled} />
+						<RateIcon className={styles.filled} />
+						<RateIcon className={styles.filled} />
 					</div>
-			</Card>
+				</div>
+			</Card >
 		</div>
 	);
 };

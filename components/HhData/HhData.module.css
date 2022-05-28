@@ -15,11 +15,11 @@
 	padding: 20px;
 	text-align: center;
 	gap: 20px 0;
-/* задаем границы блоков */
+}
 .salary > div {
 	border-right: 1px solid var(--gray-light);
 }
-/* убираем border справа у последнего блока */
+
 .salary > div:last-child {
 	border-right: none;
 }
