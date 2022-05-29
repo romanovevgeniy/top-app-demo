@@ -21,7 +21,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 				{priceRu(product.credit)}/<span className={styles.month}>мес</span>
 			</div>
 			<div className={styles.rating}><Rating rating={product.reviewAvg ?? product.initialRating} /></div>
-			<div className={styles.tags}>{product.categories.map(c => <Tag key={c} color='ghost'>{c}</Tag>)}</div>
+			<div className={styles.tags}>{product.categories.map(c => <Tag key={c} color='ghost' className={styles.category}>{c}</Tag>)}</div>
 			<div className={styles.priceTitle}>цена</div>
 			<div className={styles.creditTitle}>кредит</div>
 			<div className={styles.rateTitle}>{product.reviewCount} отзывов</div>
@@ -29,19 +29,19 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 			<div className={styles.description}>{product.description}</div>
 			<div className={styles.feature}>Feature</div>
 			<div className={styles.advBlock}>
-				<div className={styles.advantages}>
-					<div>Преимущества</div>
+				{product.advantages && <div className={styles.advantages}>
+					<div className={styles.advTitle}>Преимущества</div>
 					<div>{product.advantages}</div>
-				</div>
-				<div className={styles.disadvantages}>
-					<div>Недостатки</div>
+				</div>}
+				{product.disadvantages && <div className={styles.disadvantages}>
+					<div className={styles.advTitle}>Недостатки</div>
 					<div>{product.disadvantages}</div>
-				</div>
+				</div>}
 			</div>
 			<Divider className={styles.hr} />
 			<div className={styles.actions}>
 				<Button appearance='primary'>Узнать подробнее</Button>
-				<Button appearance='ghost' arrow='right'>Читать отзывы</Button>
+				<Button appearance='ghost' arrow='right' className={styles.reviewButton}>Читать отзывы</Button>
 			</div>
 
 		</Card>
