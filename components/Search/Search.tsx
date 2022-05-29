@@ -1,3 +1,4 @@
+import React, { KeyboardEvent } from 'react';
 import { SearchProps } from './Search.props';
 import styles from './Search.module.css';
 import cn from 'classnames';
