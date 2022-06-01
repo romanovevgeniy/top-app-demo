@@ -9,7 +9,6 @@ import CloseIcon from './close.svg';
 import { useForm, Controller } from 'react-hook-form';
 import { IPeviewSendResponse, IReviewForm } from './ReviewForm.interface';
 import axios from 'axios';
-import { ApiError } from 'next/dist/server/api-utils';
 import { API } from '../../helpers/api';
 import { useState } from 'react';
 
@@ -19,21 +18,21 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps):
 
 	const { register, control, handleSubmit, formState: { errors }, reset } = useForm<IReviewForm>();
 	const [isSuccess, setIsCuccess] = useState<boolean>(false);
-	const [error, setIsError] = useState<string>();
+	const [error, setError] = useState<string>();
 	const onSubmit = async (formData: IReviewForm) => {
 		try {
-			const { data } = await axios.post<IPeviewSendResponse>(API.review.createDemo, { ...formData, productId });
+			const { data } = await axios.post<IPeviewSendResponse>(API.review.createDemo, { ...formData, productId })
 			if (data.message) {
 				setIsCuccess(true);
 				reset();
 			} else {
-				setIsError('Что-то пошло не так');
+				setError('Что-то пошло не так');
 			}
-
 		} catch (e) {
-			setIsError(e.message);
+			setError(e.message);
 		}
 	};
+
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<div className={cn(styles.reviewForm, className)} {...props}>
@@ -78,11 +77,11 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps):
 			{isSuccess && <div className={cn(styles.success, styles.panel)}>
 				<div className={styles.successTitle}>Ваш отзыв отправлен</div>
 				<div>Спасибо! Ваш отзыв будет опубликован после проверки</div>
-				<CloseIcon className={styles.close} />
+				<CloseIcon className={styles.close} onClick={() => { setIsCuccess(false) }} />
 			</div>}
 			{error && <div className={cn(styles.error, styles.panel)}>
-
-				<CloseIcon className={styles.close} />
+				Что-то пошло не так, попробуйте обновить страницу
+				<CloseIcon className={styles.close} onClick={() => { setError(undefined) }} />
 			</div>}
 		</form>
 	)
