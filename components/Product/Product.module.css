@@ -10,25 +10,31 @@
 	grid-row: 1 / span 2;
 }
 
-.title, .tags {
+.title,
+.tags {
 	grid-column: titlestart / middle;
 }
 
-.price, .priceTitle {
+.price,
+.priceTitle {
 	grid-column: pricestart / priceend;
 	white-space: nowrap;
 }
 
-.credit, .creditTitle {
+.credit,
+.creditTitle {
 	grid-column: creditstart / creditend;
 	white-space: nowrap;
 }
 
-.rating, .rateTitle {
+.rating,
+.rateTitle {
 	grid-column: ratestart / end;
 }
 
-.hr, .description, .actions {
+.hr,
+.description,
+.actions {
 	grid-column: start / end;
 }
 
@@ -55,7 +61,8 @@
 	margin-top: 7px;
 }
 
-.price, .credit {
+.price,
+.credit {
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 27px;
@@ -87,8 +94,8 @@
 	margin-left: 20px;
 }
 
-.priceTitle, 
-.creditTitle, 
+.priceTitle,
+.creditTitle,
 .rateTitle {
 	font-weight: 300;
 	font-size: 14px;
@@ -135,7 +142,7 @@
 }
 
 
-.characteristicsDots{
+.characteristicsDots {
 	border-bottom: 1px dashed var(--gray-light);
 	margin-bottom: 5px;
 }
@@ -151,21 +158,25 @@
 	padding: 30px;
 }
 
+.rateTitle a {
+	color: var(--primary);
+}
+
 
 @media screen and (max-width: 1320px) {
 	.product {
-		grid-template-columns: 70px 30px auto 40px auto 40px 1fr ;
-		grid-template-areas: 
-		"logo . title title title title title"
-		"logo . tags tags tags tags tags"
-		"price price price . credit . rating"
-		"priceTitle priceTitle priceTitle . creditTitle . rateTitle"
-		"hr hr hr hr hr hr hr"
-		"description description description description description description description"
-		"feature feature feature feature feature feature feature"
-		"advBlock advBlock advBlock advBlock advBlock advBlock advBlock"
-		"hr2 hr2 hr2 hr2 hr2 hr2 hr2"
-		"actions actions actions actions actions actions actions"
+		grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
+		grid-template-areas:
+			"logo . title title title title title"
+			"logo . tags tags tags tags tags"
+			"price price price . credit . rating"
+			"priceTitle priceTitle priceTitle . creditTitle . rateTitle"
+			"hr hr hr hr hr hr hr"
+			"description description description description description description description"
+			"feature feature feature feature feature feature feature"
+			"advBlock advBlock advBlock advBlock advBlock advBlock advBlock"
+			"hr2 hr2 hr2 hr2 hr2 hr2 hr2"
+			"actions actions actions actions actions actions actions"
 		;
 	}
 
@@ -197,7 +208,7 @@
 	.priceTitle {
 		grid-area: priceTitle;
 	}
-		
+
 	.creditTitle {
 		grid-area: creditTitle;
 	}
@@ -249,6 +260,7 @@
 			"actions actions actions"
 		;
 	}
+
 	.price {
 		margin-bottom: 10px;
 	}
