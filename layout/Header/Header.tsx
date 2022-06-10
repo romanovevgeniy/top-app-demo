@@ -5,7 +5,7 @@ import Logo from '../logo.svg';
 import { ButtonIcon } from '../../components/ButtonIcon/ButtonIcon';
 import { motion } from 'framer-motion';
 import { Sidebar } from '../Sidebar/Sidebar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
