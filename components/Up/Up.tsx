@@ -9,8 +9,8 @@ export const Up = (): JSX.Element => {
 	const controls = useAnimation();
 	const y = useScrollY();
 
-	useEffect = (() => {
-		controls.start({ opacity: y / document.body.scrollHeight });
+	useEffect(() => {
+		controls.start({ opacity: y / document.body.scrollHeight })
 	}, [y, controls]);
 
 	const scrollToTop = () => {
