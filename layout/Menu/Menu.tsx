@@ -103,7 +103,7 @@ export const Menu = (): JSX.Element => {
 							</motion.div>
 						</div>
 					);
-				})};
+				})}
 			</div >
 		);
 	};
