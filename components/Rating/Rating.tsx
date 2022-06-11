@@ -8,7 +8,7 @@ import { error } from 'console';
 export const Rating = forwardRef(({ isEditable = false, rating, error, setRating, tabIndex, ...props }: RatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
 
 	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
-	const ratingArrayRef = useRef<(HTMLSpanElement | null)[]>(null);
+	const ratingArrayRef = useRef<(HTMLSpanElement | null)[]>([]);
 
 	useEffect(() => {
 		constructRating(rating);

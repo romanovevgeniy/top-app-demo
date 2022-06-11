@@ -28,8 +28,8 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({ params }: GetS
 	if (!params) {
 		return {
 			notFound: true
-		}
-	};
+		};
+	}
 	const firstCategoryItem = firstLevelMenu.find(m => m.route == params.type);
 	if (!firstCategoryItem) {
 		return {
