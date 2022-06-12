@@ -2,14 +2,13 @@ import { LayoutProps } from './Layout.props';
 import styles from './Layout.module.css';
 import cn from 'classnames';
 import { Header } from './Header/Header';
+import React, { FunctionComponent, useState, KeyboardEvent, useRef } from 'react';
 import { Sidebar } from './Sidebar/Sidebar';
 import { Footer } from './Footer/Footer';
-import { FunctionComponent, useState, KeyboardEvent, useRef } from 'react';
 import { AppContextProvider, IAppContext } from '../context/app.context';
 import { Up } from '../components';
 
-export const Layout = ({ children }: LayoutProps): JSX.Element => {
-
+const Layout = ({ children }: LayoutProps): JSX.Element => {
 	const [isSkipLinkDisplayed, setIsSkipLinkDisplayed] = useState<boolean>(false);
 	const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -25,17 +24,17 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
 		<div className={styles.wrapper}>
 			<a
 				onFocus={() => setIsSkipLinkDisplayed(true)}
-				tabIndex={1}
-				className={cn(styles.skiplink, {
+				tabIndex={0}
+				className={cn(styles.skipLink, {
 					[styles.displayed]: isSkipLinkDisplayed
 				})}
 				onKeyDown={skipContentAction}
 			>Сразу к содержанию</a>
 			<Header className={styles.header} />
 			<Sidebar className={styles.sidebar} />
-			<div className={styles.body} ref={bodyRef} tabIndex={0}>
+			<main className={styles.body} ref={bodyRef} tabIndex={0} role='main'>
 				{children}
-			</div>
+			</main>
 			<Footer className={styles.footer} />
 			<Up />
 		</div>
@@ -43,7 +42,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
 };
 
 export const withLayout = <T extends Record<string, unknown> & IAppContext>(Component: FunctionComponent<T>) => {
-	return function WithLayoutComponent(props: T): JSX.Element {
+	return function withLayoutComponent(props: T): JSX.Element {
 		return (
 			<AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
 				<Layout>

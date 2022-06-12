@@ -2,9 +2,11 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+
 	color: var(--black);
 	background: #F5F6F8;
-	font-family: 'Noto Sans', sans-serif;
+
+	font-family: "Noto Sans KR", sans-serif;
 }
 
 a {
@@ -17,18 +19,26 @@ a {
 	box-sizing: border-box;
 }
 
-/* создаем переменные для CSS-свойств, также выносим в переменную шрифт*/
+.visualyHidden {
+	position: absolute;
+
+	overflow: hidden;
+
+	width: 0;
+	height: 0;
+}
+
 :root {
 	--black: #3B434E;
-	--gray: #A4A4A4;
 	--gray-light: #EBEBEB;
-	--gray-dark: #787D85;
+	--gray: #A4A4A4;
+	--gray-dark: #6C7077;
 	--white: white;
-	--primary: #7653FC;
-	--primary-hover: #573dbe;
+	--primary: #7351F5;
+	--primary-hover: #6344DF;
+	--red-light: #FEA291;
 	--red: #FC836D;
-	--red-light: #ffab9c;
-	--green: #1DC37E;
+	--green: #007B48;
 	--green-light: #C8F8E4;
-	--font-family: 'Noto Sans', sans-serif;
+	--font-family: "Noto Sans KR", sans-serif;
 }
