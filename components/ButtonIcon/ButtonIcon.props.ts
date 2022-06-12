@@ -12,6 +12,7 @@ export const icons = {
 export type IconName = keyof typeof icons;
 
 export interface ButtonIconProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>,HTMLButtonElement> {
-	icon: IconName;
-  	appearance: "primary" | "white";
+	icon: IconName,
+	appearance: "primary" | "white"
+// eslint-disable-next-line @typescript-eslint/no-extra-semi
 };

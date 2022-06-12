@@ -3,7 +3,6 @@ import styles from './Rating.module.css';
 import cn from 'classnames';
 import { ForwardedRef, forwardRef, KeyboardEvent, useEffect, useRef, useState } from 'react';
 import StarIcon from './star.svg';
-import { error } from 'console';
 
 export const Rating = forwardRef(({ isEditable = false, rating, error, setRating, tabIndex, ...props }: RatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
 
@@ -66,6 +65,7 @@ export const Rating = forwardRef(({ isEditable = false, rating, error, setRating
 	const handleKey = (e: KeyboardEvent) => {
 		if (!isEditable || !setRating) {
 			return;
+			// eslint-disable-next-line @typescript-eslint/no-extra-semi
 		};
 		if (e.code == 'ArrowRight' || e.code == 'ArrowUp') {
 			if (!rating) {
