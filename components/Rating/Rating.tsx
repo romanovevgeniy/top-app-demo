@@ -9,9 +9,7 @@ export const Rating = forwardRef(({ isEditable = false, rating, error, setRating
 	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 	const ratingArrayRef = useRef<(HTMLSpanElement | null)[]>([]);
 
-	useEffect(() => {
-		constructRating(rating);
-	}, [rating, tabIndex]);
+	useEffect(() => { constructRating(rating), [rating, tabIndex]; });
 
 	const computeFocus = (r: number, i: number): number => {
 		if (!isEditable) {
@@ -51,36 +49,35 @@ export const Rating = forwardRef(({ isEditable = false, rating, error, setRating
 	const changeDisplay = (i: number) => {
 		if (!isEditable) {
 			return;
-		};
+		}
 		constructRating(i);
 	};
 
 	const onClick = (i: number) => {
 		if (!isEditable || !setRating) {
 			return;
-		};
+		}
 		setRating(i);
 	};
 
 	const handleKey = (e: KeyboardEvent) => {
 		if (!isEditable || !setRating) {
 			return;
-			// eslint-disable-next-line @typescript-eslint/no-extra-semi
-		};
+		}
 		if (e.code == 'ArrowRight' || e.code == 'ArrowUp') {
 			if (!rating) {
 				setRating(1);
 			} else {
 				e.preventDefault();
 				setRating(rating < 5 ? rating + 1 : 5);
-			};
+			}
 			ratingArrayRef.current[rating]?.focus();
-		};
+		}
 		if (e.code == 'ArrowLeft' || e.code == 'Arrowdown') {
 			e.preventDefault();
 			setRating(rating > 1 ? rating - 1 : 1);
 			ratingArrayRef.current[rating - 2]?.focus();
-		};
+		}
 	};
 
 	return (
@@ -90,5 +87,5 @@ export const Rating = forwardRef(({ isEditable = false, rating, error, setRating
 			{ratingArray.map((r, i) => (<span key={i}>{r}</span>))}
 			{error && <span className={styles.errorMessage}>{error.message}</span>}
 		</div>
-	)
+	);
 }); 
