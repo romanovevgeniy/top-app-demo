@@ -13,5 +13,5 @@ export const Card = forwardRef(({ color = 'white', children, className, ...props
 		>
 			{children}
 		</div >
-	)
+	);
 });

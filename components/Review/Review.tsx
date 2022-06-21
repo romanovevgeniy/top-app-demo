@@ -26,5 +26,5 @@ export const Review = ({ review, className, ...props }: ReviewProps): JSX.Elemen
 				{description}
 			</div>
 		</div>
-	)
+	);
 };

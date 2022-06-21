@@ -16,13 +16,13 @@ import { useState } from 'react';
 
 export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewFormProps): JSX.Element => {
 
-	const { register, control, handleSubmit, formState: { errors }, reset, clearErrors } = useForm<IReviewForm>();
+	const { register, control, handleSubmit, formState: { errors }, reset } = useForm<IReviewForm>();
 	const [isSuccess, setIsCuccess] = useState<boolean>(false);
 	const [error, setError] = useState<string>();
 
 	const onSubmit = async (formData: IReviewForm) => {
 		try {
-			const { data } = await axios.post<IReviewSendResponse>(API.review.createDemo, { ...formData, productId })
+			const { data } = await axios.post<IReviewSendResponse>(API.review.createDemo, { ...formData, productId });
 			if (data.message) {
 				setIsCuccess(true);
 				reset();
@@ -84,12 +84,12 @@ export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewF
 			{isSuccess && <div className={cn(styles.success, styles.panel)}>
 				<div className={styles.successTitle}>Ваш отзыв отправлен</div>
 				<div>Спасибо! Ваш отзыв будет опубликован после проверки</div>
-				<CloseIcon className={styles.close} onClick={() => { setIsCuccess(false) }} />
+				<CloseIcon className={styles.close} onClick={() => { setIsCuccess(false); }} />
 			</div>}
 			{error && <div className={cn(styles.error, styles.panel)}>
 				Что-то пошло не так, попробуйте обновить страницу
-				<CloseIcon className={styles.close} onClick={() => { setError(undefined) }} />
+				<CloseIcon className={styles.close} onClick={() => { setError(undefined); }} />
 			</div>}
 		</form>
-	)
+	);
 };
