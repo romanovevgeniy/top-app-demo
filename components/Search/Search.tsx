@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
 import { useState } from 'react';
-import GlassIcon from './glass.svg'
+import GlassIcon from './glass.svg';
 import { useRouter } from 'next/router';
 
 export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
